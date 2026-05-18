@@ -69,7 +69,42 @@ tr.sp-row td.cc{padding:10px 16px}.sp-inner{display:flex;align-items:center;gap:
 @media(max-width:480px){.masthead h1{font-size:1.35rem}.masthead-sub{font-size:.58rem;letter-spacing:.15em}.legend-strip{gap:4px}.leg{font-size:.55rem;padding:2px 7px 2px 5px}.leg::before{width:6px;height:6px}.sc-meta{min-width:58px;padding:8px 6px}.sc-per{font-size:.85rem}.sc-time{font-size:.7rem}.sc-info{padding:8px 10px}.sc-grade{font-size:.78rem}.sc-subj{font-size:.72rem}.sc-special{padding:7px 10px;font-size:.72rem;gap:8px}.sc-sp-time{font-size:.72rem}.sc-sp-label{font-size:.72rem}.day-tab{font-size:.65rem;padding:6px 12px;letter-spacing:.06em}.sec-title{font-size:.6rem}}
 .footer{margin-top:36px;padding:16px 52px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
 .footer span{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em}
-@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:1cm;size:landscape}}
+/* Accessibility panel */
+.a11y-fab{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.a11y-toggle{width:52px;height:52px;border-radius:50%;border:none;background:var(--header-bg);color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.a11y-toggle:hover{transform:scale(1.1)}
+.a11y-panel{display:none;flex-direction:column;gap:6px;background:var(--surface);border-radius:14px;padding:12px;box-shadow:0 4px 24px rgba(0,0,0,.18);border:1px solid var(--rule);min-width:180px}
+.a11y-panel.open{display:flex}
+.a11y-panel-title{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;text-align:center}
+.a11y-btn{border:none;border-radius:8px;padding:10px 14px;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .15s;background:var(--bg);color:var(--ink)}
+.a11y-btn:hover{background:var(--rule)}
+.a11y-btn.active{background:var(--header-bg);color:#fff}
+.a11y-btn .a11y-icon{font-size:1.1rem;flex-shrink:0;width:24px;text-align:center}
+.a11y-size-row{display:flex;gap:4px}
+.a11y-size-row .a11y-btn{flex:1;justify-content:center;padding:8px}
+/* Zoom levels */
+body.zoom-1{font-size:112%}body.zoom-2{font-size:125%}body.zoom-3{font-size:140%}
+body.zoom-1 .sched thead th,body.zoom-2 .sched thead th,body.zoom-3 .sched thead th{font-size:.85rem}
+body.zoom-1 td.cc .grade,body.zoom-2 td.cc .grade,body.zoom-3 td.cc .grade{font-size:.92rem}
+body.zoom-1 td.cc .subj,body.zoom-2 td.cc .subj,body.zoom-3 td.cc .subj{font-size:1.05rem}
+body.zoom-1 td.tc .per,body.zoom-2 td.tc .per,body.zoom-3 td.tc .per{font-size:1.2rem}
+body.zoom-1 td.tc .hrs,body.zoom-2 td.tc .hrs,body.zoom-3 td.tc .hrs{font-size:1.05rem}
+body.zoom-1 .sc-grade,body.zoom-2 .sc-grade,body.zoom-3 .sc-grade{font-size:1rem}
+body.zoom-1 .sc-subj,body.zoom-2 .sc-subj,body.zoom-3 .sc-subj{font-size:.92rem}
+body.zoom-1 .sc-per,body.zoom-2 .sc-per,body.zoom-3 .sc-per{font-size:1.15rem}
+body.zoom-1 .sc-time,body.zoom-2 .sc-time,body.zoom-3 .sc-time{font-size:.88rem}
+body.zoom-1 .sc-special,body.zoom-2 .sc-special,body.zoom-3 .sc-special{font-size:.92rem}
+body.zoom-3 td.cc .grade{font-size:1.05rem}body.zoom-3 td.cc .subj{font-size:1.15rem}
+body.zoom-3 .sc-grade{font-size:1.12rem}body.zoom-3 .sc-subj{font-size:1rem}
+/* High contrast mode */
+body.hi-contrast{--bg:#fff;--surface:#fff;--ink:#000;--rule:#999;--muted:#333;--c-9r:#B33D00;--c-9r-bg:#FFE0CC;--c-9b:#003DA6;--c-9b-bg:#CCE0FF;--c-10r:#99003D;--c-10r-bg:#FFCCE0;--c-10b:#006680;--c-10b-bg:#CCF0F7;--c-11g:#5A0099;--c-11g-bg:#E8CCFF;--c-free:#333;--c-free-bg:#E6E6E6;--c-break:#8B6B00;--c-break-bg:#FFF0B3;--c-devo:#5A0099;--c-devo-bg:#E8CCFF;--c-lunch:#2D5A1E;--c-lunch-bg:#D4F0CC;--header-bg:#000;--strip-bg:#111}
+body.hi-contrast .sched thead th{color:#fff}body.hi-contrast .masthead h1{color:#fff}
+body.hi-contrast .a11y-toggle{background:#000}
+body.hi-contrast td.cc .grade,body.hi-contrast .sc-grade{font-weight:800}
+body.hi-contrast .gfree .grade,body.hi-contrast .sc-card.gfree .sc-grade{color:#000}
+body.hi-contrast .legend-strip{background:#222}
+body.hi-contrast .leg{border:1px solid rgba(255,255,255,.3)}
+@media print{.a11y-fab{display:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:1cm;size:landscape}}
 </style>
 </head>
 <body>
@@ -263,5 +298,40 @@ function showDay(day){document.querySelectorAll('.day-tab').forEach(function(t){
   <span>Ms. Ana C. Mora &nbsp;·&nbsp; Año Académico 2026</span>
   <span>Lenguaje, Literatura &amp; Investigación &nbsp;·&nbsp; Grados 9–11</span>
 </div>
+<div class="a11y-fab" id="a11yFab">
+  <div class="a11y-panel" id="a11yPanel">
+    <div class="a11y-panel-title">Accesibilidad</div>
+    <div class="a11y-size-row">
+      <button class="a11y-btn" onclick="changeZoom(-1)" title="Reducir texto"><span class="a11y-icon">A-</span></button>
+      <button class="a11y-btn" id="zoomLabel" style="flex:1.5;justify-content:center;pointer-events:none;font-family:'JetBrains Mono',monospace;font-size:.75rem">100%</button>
+      <button class="a11y-btn" onclick="changeZoom(1)" title="Aumentar texto"><span class="a11y-icon">A+</span></button>
+    </div>
+    <button class="a11y-btn" id="contrastBtn" onclick="toggleContrast()"><span class="a11y-icon">◐</span> Alto Contraste</button>
+  </div>
+  <button class="a11y-toggle" onclick="toggleA11yPanel()" title="Accesibilidad">👁</button>
+</div>
+<script>
+var zoomLevel=0,maxZoom=3;
+var zoomLabels=['100%','112%','125%','140%'];
+function toggleA11yPanel(){document.getElementById('a11yPanel').classList.toggle('open')}
+function changeZoom(dir){
+  document.body.classList.remove('zoom-'+zoomLevel);
+  zoomLevel=Math.max(0,Math.min(maxZoom,zoomLevel+dir));
+  if(zoomLevel>0)document.body.classList.add('zoom-'+zoomLevel);
+  document.getElementById('zoomLabel').textContent=zoomLabels[zoomLevel];
+  localStorage.setItem('a11y-zoom',zoomLevel);
+}
+function toggleContrast(){
+  document.body.classList.toggle('hi-contrast');
+  var btn=document.getElementById('contrastBtn');
+  btn.classList.toggle('active');
+  localStorage.setItem('a11y-contrast',document.body.classList.contains('hi-contrast')?'1':'0');
+}
+(function(){
+  var sz=parseInt(localStorage.getItem('a11y-zoom')||'0');
+  if(sz>0&&sz<=maxZoom){zoomLevel=sz;document.body.classList.add('zoom-'+sz);document.getElementById('zoomLabel').textContent=zoomLabels[sz]}
+  if(localStorage.getItem('a11y-contrast')==='1'){document.body.classList.add('hi-contrast');document.getElementById('contrastBtn').classList.add('active')}
+})();
+</script>
 </body>
 </html>
